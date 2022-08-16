@@ -2,6 +2,7 @@ package com.das.controlePedidos.controller;
 
 import com.das.controlePedidos.domain.Client;
 import com.das.controlePedidos.requests.ClientPostRequestBody;
+import com.das.controlePedidos.requests.ClientPutRequestBody;
 import com.das.controlePedidos.service.ClientService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -37,6 +38,12 @@ public class ClientController {
     @DeleteMapping(path = "/{id}")
     public ResponseEntity<Void> delete(@PathVariable long id) {
         clientService.delete(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @PutMapping
+    public ResponseEntity<Void> replace(@RequestBody ClientPutRequestBody animePutRequestBody) {
+        clientService.replace(animePutRequestBody);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }

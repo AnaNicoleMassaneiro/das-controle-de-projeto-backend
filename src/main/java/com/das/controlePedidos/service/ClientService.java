@@ -5,6 +5,7 @@ import com.das.controlePedidos.exception.BadRequestException;
 import com.das.controlePedidos.mapper.ClientMapper;
 import com.das.controlePedidos.repository.ClientRepository;
 import com.das.controlePedidos.requests.ClientPostRequestBody;
+import com.das.controlePedidos.requests.ClientPutRequestBody;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -32,5 +33,12 @@ public class ClientService {
 
     public void delete(long id) {
         clientRepository.delete(findByIdOrThrowBadRequestException(id));
+    }
+
+    public void replace(ClientPutRequestBody clientPutRequestBody) {
+        Client savedClient = findByIdOrThrowBadRequestException(clientPutRequestBody.getId());
+        Client client = ClientMapper.INSTANCE.toAnime(clientPutRequestBody);
+        client.setId(savedClient.getId());
+        clientRepository.save(client);
     }
 }
