@@ -24,6 +24,11 @@ public class ClientController {
         return (ResponseEntity<List<Client>>) ResponseEntity.ok(clientService.listAll());
     }
 
+    @GetMapping(path = "/{id}")
+    public ResponseEntity<Client> findById(@PathVariable long id) {
+        return ResponseEntity.ok(clientService.findByIdOrThrowBadRequestException(id));
+    }
+
     @PostMapping
     public ResponseEntity<Client> save(@RequestBody @Valid ClientPostRequestBody clientPostRequestBody) {
         return new ResponseEntity<>(clientService.save(clientPostRequestBody), HttpStatus.CREATED);
