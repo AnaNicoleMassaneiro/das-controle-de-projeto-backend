@@ -29,4 +29,8 @@ public class ClientService {
     public Client save(ClientPostRequestBody clientPostRequestBody) {
         return clientRepository.save(ClientMapper.INSTANCE.toClient(clientPostRequestBody));
     }
+
+    public void delete(long id) {
+        clientRepository.delete(findByIdOrThrowBadRequestException(id));
+    }
 }
