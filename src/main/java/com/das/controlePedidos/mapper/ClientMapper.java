@@ -11,6 +11,6 @@ public abstract class ClientMapper {
 
     public abstract Client toClient(ClientPostRequestBody animePostRequestBody);
 
-    public abstract Client toAnime(ClientPutRequestBody animePostRequestBody);
+    public abstract Client toClient(ClientPutRequestBody animePostRequestBody);
 
 }

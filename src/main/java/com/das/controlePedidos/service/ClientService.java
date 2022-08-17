@@ -37,7 +37,7 @@ public class ClientService {
 
     public void replace(ClientPutRequestBody clientPutRequestBody) {
         Client savedClient = findByIdOrThrowBadRequestException(clientPutRequestBody.getId());
-        Client client = ClientMapper.INSTANCE.toAnime(clientPutRequestBody);
+        Client client = ClientMapper.INSTANCE.toClient(clientPutRequestBody);
         client.setId(savedClient.getId());
         clientRepository.save(client);
     }

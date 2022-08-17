@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-08-16T14:25:28-0300",
+    date = "2022-08-17T13:45:22-0300",
     comments = "version: 1.4.1.Final, compiler: javac, environment: Java 17 (Oracle Corporation)"
 )
 @Component
@@ -31,7 +31,7 @@ public class ClientMapperImpl extends ClientMapper {
     }
 
     @Override
-    public Client toAnime(ClientPutRequestBody animePostRequestBody) {
+    public Client toClient(ClientPutRequestBody animePostRequestBody) {
         if ( animePostRequestBody == null ) {
             return null;
         }
