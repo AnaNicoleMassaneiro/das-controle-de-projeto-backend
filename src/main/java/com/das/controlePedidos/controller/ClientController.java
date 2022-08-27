@@ -34,8 +34,12 @@ public class ClientController {
     }
 
     @PostMapping
-    public ResponseEntity<Client> save(@RequestBody @Valid ClientPostRequestBody clientPostRequestBody) {
-        return new ResponseEntity<>(clientService.save(clientPostRequestBody), HttpStatus.CREATED);
+    public ResponseEntity<Client> save(@RequestBody @Valid ClientPostRequestBody clientPostRequestBody) throws Exception {
+        try {
+            return new ResponseEntity<>(clientService.save(clientPostRequestBody), HttpStatus.CREATED);
+        } catch (Exception e) {
+            throw new Exception("CPF já cadastrado em nosso sistema");
+        }
     }
 
     @DeleteMapping(path = "/{id}")
