@@ -16,10 +16,10 @@ import javax.persistence.*;
 public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", unique = true, nullable = false)
     private Long id;
     @Column(unique=true)
     private String cpf;
     private String name;
     private String sobrenome;
-
 }

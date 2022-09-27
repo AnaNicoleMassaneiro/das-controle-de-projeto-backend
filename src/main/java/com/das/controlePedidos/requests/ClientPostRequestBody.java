@@ -1,7 +1,6 @@
 package com.das.controlePedidos.requests;
 
 import org.hibernate.validator.constraints.br.CPF;
-import org.springframework.stereotype.Indexed;
 
 import javax.persistence.Column;
 import javax.validation.constraints.NotEmpty;

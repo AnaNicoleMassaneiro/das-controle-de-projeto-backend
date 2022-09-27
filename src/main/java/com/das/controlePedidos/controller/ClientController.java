@@ -28,9 +28,9 @@ public class ClientController {
         return (ResponseEntity<List<Client>>) ResponseEntity.ok(clientService.listAll());
     }
 
-    @GetMapping(path = "/{id}")
-    public ResponseEntity<Client> findById(@PathVariable long id) {
-        return ResponseEntity.ok(clientService.findByIdOrThrowBadRequestException(id));
+    @GetMapping(path = "/{cpf}")
+    public ResponseEntity<Client> findByCpf(@PathVariable String cpf) {
+        return ResponseEntity.ok(clientService.findByCpf(cpf));
     }
 
     @PostMapping
@@ -38,7 +38,7 @@ public class ClientController {
         try {
             return new ResponseEntity<>(clientService.save(clientPostRequestBody), HttpStatus.CREATED);
         } catch (Exception e) {
-            throw new Exception("CPF já cadastrado em nosso sistema");
+            throw new Exception(e);
         }
     }
 

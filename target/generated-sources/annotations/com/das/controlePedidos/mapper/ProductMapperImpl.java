@@ -9,36 +9,36 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-08-27T13:56:34-0300",
+    date = "2022-09-27T13:15:23-0300",
     comments = "version: 1.4.1.Final, compiler: javac, environment: Java 17 (Oracle Corporation)"
 )
 @Component
 public class ProductMapperImpl extends ProductMapper {
 
     @Override
-    public Product toProduct(ProductPostRequestBody animePostRequestBody) {
-        if ( animePostRequestBody == null ) {
+    public Product toProduct(ProductPostRequestBody productPostRequestBody) {
+        if ( productPostRequestBody == null ) {
             return null;
         }
 
         ProductBuilder product = Product.builder();
 
-        product.id( animePostRequestBody.id );
-        product.descricao( animePostRequestBody.descricao );
+        product.id( productPostRequestBody.id );
+        product.descricao( productPostRequestBody.descricao );
 
         return product.build();
     }
 
     @Override
-    public Product toProduct(ProductPutRequestBody animePostRequestBody) {
-        if ( animePostRequestBody == null ) {
+    public Product toProduct(ProductPutRequestBody productPostRequestBody) {
+        if ( productPostRequestBody == null ) {
             return null;
         }
 
         ProductBuilder product = Product.builder();
 
-        product.id( animePostRequestBody.getId() );
-        product.descricao( animePostRequestBody.getDescricao() );
+        product.id( productPostRequestBody.getId() );
+        product.descricao( productPostRequestBody.getDescricao() );
 
         return product.build();
     }

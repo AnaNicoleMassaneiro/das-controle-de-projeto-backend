@@ -9,39 +9,39 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-08-27T13:56:34-0300",
+    date = "2022-09-27T13:15:23-0300",
     comments = "version: 1.4.1.Final, compiler: javac, environment: Java 17 (Oracle Corporation)"
 )
 @Component
 public class ClientMapperImpl extends ClientMapper {
 
     @Override
-    public Client toClient(ClientPostRequestBody animePostRequestBody) {
-        if ( animePostRequestBody == null ) {
+    public Client toClient(ClientPostRequestBody productPostRequestBody) {
+        if ( productPostRequestBody == null ) {
             return null;
         }
 
         ClientBuilder client = Client.builder();
 
-        client.cpf( animePostRequestBody.cpf );
-        client.name( animePostRequestBody.name );
-        client.sobrenome( animePostRequestBody.sobrenome );
+        client.cpf( productPostRequestBody.cpf );
+        client.name( productPostRequestBody.name );
+        client.sobrenome( productPostRequestBody.sobrenome );
 
         return client.build();
     }
 
     @Override
-    public Client toClient(ClientPutRequestBody animePostRequestBody) {
-        if ( animePostRequestBody == null ) {
+    public Client toClient(ClientPutRequestBody productPostRequestBody) {
+        if ( productPostRequestBody == null ) {
             return null;
         }
 
         ClientBuilder client = Client.builder();
 
-        client.id( animePostRequestBody.getId() );
-        client.cpf( animePostRequestBody.getCpf() );
-        client.name( animePostRequestBody.getName() );
-        client.sobrenome( animePostRequestBody.getSobrenome() );
+        client.id( productPostRequestBody.getId() );
+        client.cpf( productPostRequestBody.getCpf() );
+        client.name( productPostRequestBody.getName() );
+        client.sobrenome( productPostRequestBody.getSobrenome() );
 
         return client.build();
     }
