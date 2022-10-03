@@ -1,6 +1,7 @@
 package com.das.controlePedidos.controller;
 
 import com.das.controlePedidos.domain.Client;
+import com.das.controlePedidos.domain.Product;
 import com.das.controlePedidos.requests.ClientPostRequestBody;
 import com.das.controlePedidos.requests.ClientPutRequestBody;
 import com.das.controlePedidos.service.ClientService;
@@ -26,6 +27,11 @@ public class ClientController {
     @GetMapping
     public ResponseEntity<List<Client>> list() {
         return (ResponseEntity<List<Client>>) ResponseEntity.ok(clientService.listAll());
+    }
+
+    @GetMapping(path = "search/{id}")
+    public ResponseEntity<Client> findById(@PathVariable long id) {
+        return ResponseEntity.ok(clientService.findByIdOrThrowBadRequestException(id));
     }
 
     @GetMapping(path = "/{cpf}")
