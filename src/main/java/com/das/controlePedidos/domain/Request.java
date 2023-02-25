@@ -20,9 +20,15 @@ public class Request {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotNull
+
+    @JoinColumn(name = "id_product", referencedColumnName = "id", table = "product")
+    private Long idProduct;
+
     @JsonFormat(pattern = "yyyy/MM/dd")
     private Date data;
-    @JoinColumn(name = "id_client", referencedColumnName = "id")
+
+    @JoinColumn(name = "id_client", referencedColumnName = "id", table = "client")
     private Long idClient;
+
+    private Long qtd;
 }

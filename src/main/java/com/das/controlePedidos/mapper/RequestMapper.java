@@ -5,6 +5,8 @@ import com.das.controlePedidos.requests.RequestPutRequestBody;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
+import java.util.List;
+
 @Mapper(componentModel = "spring")
 public abstract class RequestMapper {
     public static final RequestMapper INSTANCE = Mappers.getMapper(RequestMapper.class);

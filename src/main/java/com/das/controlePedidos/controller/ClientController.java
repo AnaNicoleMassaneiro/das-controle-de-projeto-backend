@@ -5,6 +5,7 @@ import com.das.controlePedidos.domain.Product;
 import com.das.controlePedidos.requests.ClientPostRequestBody;
 import com.das.controlePedidos.requests.ClientPutRequestBody;
 import com.das.controlePedidos.service.ClientService;
+import com.das.controlePedidos.service.RequestService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
@@ -23,6 +24,7 @@ import java.util.List;
 @CrossOrigin(origins = "*")
 public class ClientController {
     private final ClientService clientService;
+    private final RequestService requestService;
 
     @GetMapping
     public ResponseEntity<List<Client>> list() {
@@ -41,6 +43,7 @@ public class ClientController {
 
     @PostMapping
     public ResponseEntity<Client> save(@RequestBody @Valid ClientPostRequestBody clientPostRequestBody) throws Exception {
+
         try {
             return new ResponseEntity<>(clientService.save(clientPostRequestBody), HttpStatus.CREATED);
         } catch (Exception e) {
@@ -49,8 +52,12 @@ public class ClientController {
     }
 
     @DeleteMapping(path = "/{id}")
-    public ResponseEntity<Void> delete(@PathVariable long id) {
-        clientService.delete(id);
+    public ResponseEntity<Void> delete(@PathVariable long id) throws Exception {
+        if (!requestService.findById(id)) {
+            clientService.delete(id);
+        } else {
+            throw new Exception("esse cliente nao pode ser excluido pois tem registro em seu nome");
+        }
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 

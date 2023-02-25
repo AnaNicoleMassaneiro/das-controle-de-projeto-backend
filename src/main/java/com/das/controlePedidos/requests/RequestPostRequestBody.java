@@ -4,7 +4,6 @@ import com.das.controlePedidos.domain.Client;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.validation.constraints.NotEmpty;
 import java.util.Date;
 
 @Getter
@@ -12,4 +11,6 @@ import java.util.Date;
 public class RequestPostRequestBody {
     public Date data;
     public Long idClient;
+    public Long qtd;
+    public Long idProduct;
 }

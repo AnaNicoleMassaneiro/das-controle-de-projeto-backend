@@ -6,6 +6,7 @@ import com.das.controlePedidos.service.RequestService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -31,9 +32,9 @@ public class RequestController {
         return ResponseEntity.ok(requestService.findByIdOrThrowBadRequestException(id));
     }
 
-    @PostMapping
-    public ResponseEntity<Request> save(@RequestBody @Valid RequestPostRequestBody requestPostRequestBody) {
-        return new ResponseEntity<>(requestService.save(requestPostRequestBody), HttpStatus.CREATED);
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    public HttpStatus save(@RequestBody @Valid List<RequestPostRequestBody> requestPostRequestBody) {
+        return new ResponseEntity<>(requestService.save(requestPostRequestBody), HttpStatus.CREATED).getStatusCode();
     }
 
     @DeleteMapping(path = "/{id}")
@@ -41,12 +42,4 @@ public class RequestController {
         requestService.delete(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
-
-   // @PutMapping
-    //public ResponseEntity<Void> replace(@RequestBody ProductPutRequestBody animePutRequestBody) {
-      //  requestService.replace(animePutRequestBody);
-       // return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-   // }
-
-
 }
