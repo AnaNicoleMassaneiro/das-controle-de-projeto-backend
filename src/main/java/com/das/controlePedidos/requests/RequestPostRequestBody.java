@@ -10,7 +10,7 @@ import java.util.Date;
 @Setter
 public class RequestPostRequestBody {
     public Date data;
-    public Long idClient;
+    public Long id_product;
     public Long qtd;
-    public Long idProduct;
+    public Long id_client;
 }

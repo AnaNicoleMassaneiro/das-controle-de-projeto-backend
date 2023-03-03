@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-02-25T10:43:03-0300",
+    date = "2023-03-02T22:03:26-0300",
     comments = "version: 1.4.1.Final, compiler: javac, environment: Java 17 (Oracle Corporation)"
 )
 @Component
@@ -23,9 +23,9 @@ public class RequestMapperImpl extends RequestMapper {
 
         RequestBuilder request = Request.builder();
 
-        request.idProduct( requestPostRequestBody.getIdProduct() );
+        request.id_product( requestPostRequestBody.getId_product() );
         request.data( requestPostRequestBody.getData() );
-        request.idClient( requestPostRequestBody.getIdClient() );
+        request.id_client( requestPostRequestBody.getId_client() );
         request.qtd( requestPostRequestBody.getQtd() );
 
         return request.build();
@@ -40,7 +40,7 @@ public class RequestMapperImpl extends RequestMapper {
         RequestBuilder request = Request.builder();
 
         request.data( requestPostRequestBody.getData() );
-        request.idClient( requestPostRequestBody.getIdClient() );
+        request.id_client( requestPostRequestBody.getId_client() );
 
         return request.build();
     }

@@ -8,5 +8,5 @@ import java.util.Date;
 @Data
 public class RequestPutRequestBody {
     public Date data;
-    public Long idClient;
+    public Long id_client;
 }

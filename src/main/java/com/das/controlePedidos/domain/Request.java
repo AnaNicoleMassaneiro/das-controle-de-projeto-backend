@@ -16,19 +16,21 @@ import java.util.Date;
 @NoArgsConstructor
 @Entity
 @Builder
+@Table(name = "request")
 public class Request {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @JoinColumn(name = "id_product", referencedColumnName = "id", table = "product")
-    private Long idProduct;
+    private Long id_product;
 
     @JsonFormat(pattern = "yyyy/MM/dd")
     private Date data;
 
     @JoinColumn(name = "id_client", referencedColumnName = "id", table = "client")
-    private Long idClient;
+    private Long id_client;
 
     private Long qtd;
+
 }
