@@ -1,14 +1,11 @@
 package com.das.controlePedidos.repository;
 
 import com.das.controlePedidos.domain.Request;
-import com.das.controlePedidos.domain.ReturnRequest;
-import org.hibernate.annotations.Any;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
-import java.util.Set;
 
 public interface RequestRepository extends JpaRepository<Request, Long> {
    @Query(value = "SELECT p.descricao, c.name, c.sobrenome, c.cpf, r.qtd " +

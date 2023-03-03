@@ -1,10 +1,21 @@
-### Spring Boot, PostgreSQL, JPA, Hibernate REST API Demo
-
-#### Steps to Setup
-
-__1. Clone the repository__
+<div align="center">
+<h1>BACK-END  - CRUD - DESENVOLVIDO PARA ESPECIALIZAÇÃO EM DESENV. ÁGIL</h1>
 
 
-__2. Configure PostgreSQL__
 
-First, create a database named postgres_demo. Then, open src/main/resources/application.properties file and change the spring datasource username and password as per your PostgreSQL installation.
+
+## Instalação / Configuração:
+
+1) Clone o repositório
+   git clone https://github.com/AnaNicoleMassaneiro/das-controle-de-projeto-backend
+
+2) Abra o arquivo do projeto (INTELLIJ)
+
+3) Altere as configurações e credenciais do bd no arquivo .properties
+
+
+## Técnologias utilizadas
+WebAPI (java 11), Spring Framework, PostgresSql
+
+## Desenvolvido por:
+Ana Nicole Massaneiro (Todos os direitos reservados)
