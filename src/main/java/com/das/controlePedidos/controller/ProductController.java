@@ -18,7 +18,7 @@ import java.util.List;
 @RequestMapping("product")
 @Log4j2
 @RequiredArgsConstructor
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:61222")
 public class ProductController {
     private final ProductService productService;
 

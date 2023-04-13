@@ -22,7 +22,7 @@ import java.util.Set;
 @RequestMapping("request")
 @Log4j2
 @RequiredArgsConstructor
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:61222")
 public class RequestController {
     private final RequestService requestService;
 

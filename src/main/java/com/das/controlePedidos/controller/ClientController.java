@@ -13,15 +13,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
-import javax.validation.ConstraintViolationException;
-import javax.validation.Valid;
+    import javax.validation.Valid;
 import java.util.List;
 
 @RestController
 @RequestMapping("client")
 @Log4j2
 @RequiredArgsConstructor
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:61222")
 public class ClientController {
     private final ClientService clientService;
     private final RequestService requestService;
@@ -43,7 +42,6 @@ public class ClientController {
 
     @PostMapping
     public ResponseEntity<Client> save(@RequestBody @Valid ClientPostRequestBody clientPostRequestBody) throws Exception {
-
         try {
             return new ResponseEntity<>(clientService.save(clientPostRequestBody), HttpStatus.CREATED);
         } catch (Exception e) {
